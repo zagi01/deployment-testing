@@ -1,0 +1,167 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+nav {
+    position: fixed;
+    width: 100%;
+    background-color: #d71e28;
+    height: 70px;
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 5px solid #fcc60a;
+}
+
+
+.logo {
+    font-size: 29px; 
+    font-weight: 600;
+}
+
+
+.menu-bar {
+    font-size: 24px; 
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    min-height: calc(100vh - 200px);
+    
+}
+
+.container {
+    
+    width: 80%;
+    max-width: 600px; /* Adjust for tablet view */
+    padding: 20px;
+   
+}
+
+.container p {
+    /* color: #d71e28; */
+    background-color: #db5c6214;
+    text-shadow: 3px 5px 3px #fff;
+}
+
+/* Style for the input fields */
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* align-items: center; */
+}
+
+input {
+    width: 48%; /* You can adjust the width */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px solid #333; /* You can adjust the font size */
+}
+
+/* Style for the submit button */
+button {
+    align-self: center;
+    margin-left: 220px;
+    padding: 10px 40px;
+    font-size: 16px;
+    border: none;
+    color: #fff;
+    border-radius: 30px;
+     /* You can adjust the font size */
+}
+
+button:hover {
+    background-color: #d71e28;
+}
+
+/* Style for the footer */
+footer {
+    height: 100px;
+    padding: 20px 15px;
+    background-color: #f4f0ed;
+}
+
+
+/* @media screen and (max-width: 850px){
+    button {
+        margin-left: 100px;
+        background-color: #d71e28;
+
+    }
+} */
+
+/* Media query for mobile view (stack inputs) */
+
+@media screen and (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+    }
+    main {
+        height: 130vh;
+        
+    }
+    button {
+        background-color: #d71e28;
+        margin-left: 70px;
+    }
+    input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .container {
+        margin-top: -200px;
+    }
+
+    footer {
+        margin-top: -300px;
+    }
+}
+
+
+
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+    transition: opacity 0.75s, visibility 0.75s;
+    z-index: 1;
+}
+
+.loader::after{
+
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 8px solid rgba(87, 84, 84, 0.367);
+    border-top-color: #d71e28;
+    border-radius: 50%;
+    animation: loading 0.80s linear infinite;
+    z-index: 1;
+}
+@keyframes loading {
+    from {transform: rotate(0deg);
+        }
+    to{transform: rotate(360deg);
+        filter: brightness(1);}
+    
+}

